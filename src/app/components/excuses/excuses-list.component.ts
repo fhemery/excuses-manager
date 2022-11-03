@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ExcusesService } from '../../services/excuses.service';
 
 @Component({
   selector: 'app-excuses-list',
   templateUrl: './excuses-list.component.html',
   styleUrls: ['./excuses-list.component.scss'],
 })
-export class ExcusesListComponent implements OnInit {
-  excuses: string[] = [];
+export class ExcusesListComponent {
+  excuses$: Observable<string[]>;
   selectedExcuse: string = '';
 
-  ngOnInit(): void {
-    this.excuses.push("Je ne pouvais pas j'avais poney");
-    this.excuses.push(`Le réveil n'a pas sonné`);
-    this.excuses.push(`J'aurais pu, mais j'avais pas une envie`);
+  constructor(private excusesService: ExcusesService) {
+    this.excuses$ = this.excusesService.getRandom(6);
   }
 
   setSelected(excuse: any) {

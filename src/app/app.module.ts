@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { ExcusesModule } from './components/excuses/excuses.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +16,7 @@ import { ExcusesModule } from './components/excuses/excuses.module';
     BrowserAnimationsModule,
     MatButtonModule,
     ExcusesModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

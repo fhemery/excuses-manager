@@ -1,6 +1,9 @@
-<div class="excuses-list">
+<h1>Excuses aléatoires</h1>
+
+<div class="excuses-list" *ngIf="excuses$ | async; let excuses">
   <app-excuses-card *ngFor="let excuse of excuses" [excuse]="excuse" (selected)="setSelected($event)"></app-excuses-card>
 </div>
+
 <div class="selected-excuse" *ngIf="!!selectedExcuse">
   Selected: {{selectedExcuse}}
 </div>

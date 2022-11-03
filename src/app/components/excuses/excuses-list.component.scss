@@ -1,0 +1,10 @@
+.excuses-list {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+
+  app-excuses-card {
+    max-width: 400px;
+    margin: 20px;
+  }
+}
