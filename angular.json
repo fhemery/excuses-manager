@@ -73,7 +73,8 @@
               "browserTarget": "excuse-manager:build:production"
             },
             "development": {
-              "browserTarget": "excuse-manager:build:development"
+              "browserTarget": "excuse-manager:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

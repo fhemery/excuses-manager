@@ -1,0 +1,11 @@
+{
+  "/api/*": {
+    "target": "https://excuser.herokuapp.com/v1",
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

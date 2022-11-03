@@ -10,8 +10,6 @@ export class ExcusesHttpService {
   constructor(private readonly httpClient: HttpClient) {}
 
   getRandomExcuses(nb: number): Observable<Excuse[]> {
-    return this.httpClient.get<Excuse[]>(
-      `https://excuser.herokuapp.com/v1/excuse/${nb}`
-    );
+    return this.httpClient.get<Excuse[]>(`/api/excuse/${nb}`);
   }
 }
