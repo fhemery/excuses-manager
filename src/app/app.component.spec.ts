@@ -1,17 +1,19 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { en } from './translations/en';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+      imports: [RouterTestingModule, TranslateModule.forRoot()],
+      declarations: [AppComponent],
     }).compileComponents();
+
+    const service = TestBed.inject<TranslateService>(TranslateService);
+    service.setTranslation('en', en);
+    service.setDefaultLang('en');
   });
 
   it('should create the app', () => {
@@ -30,6 +32,8 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('excuse-manager app is running!');
+    expect(compiled.querySelector('#header')?.textContent?.trim()).toContain(
+      en.header.label
+    );
   });
 });
