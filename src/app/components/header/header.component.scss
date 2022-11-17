@@ -1,0 +1,8 @@
+.header {
+  display:flex;
+  background-color: rebeccapurple;
+
+  .header-title {
+    flex-grow:2;
+  }
+}

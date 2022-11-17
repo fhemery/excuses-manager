@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "deploy": "ng deploy",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
@@ -16,6 +17,7 @@
     "@angular/common": "^14.2.0",
     "@angular/compiler": "^14.2.0",
     "@angular/core": "^14.2.0",
+    "@angular/fire": "^7.4.1",
     "@angular/forms": "^14.2.0",
     "@angular/material": "^14.2.6",
     "@angular/platform-browser": "^14.2.0",

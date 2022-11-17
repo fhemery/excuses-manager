@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "excuses-manager": {
+      "hosting": {
+        "excuse-manager": [
+          "excuses-manager"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "excuses-manager"
+  }
+}

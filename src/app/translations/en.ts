@@ -1,6 +1,12 @@
 export const en = {
+  app: {
+    title: 'Excuses manager',
+  },
   header: {
     label: 'Here is my header',
+    loginButton: 'Login',
+    logoutButton: 'Logout',
+    welcome: 'Welcome, {{name}}',
   },
   footer: {
     label: 'Here is my footer',

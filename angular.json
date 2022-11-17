@@ -87,6 +87,16 @@
               "src/**/*.html"
             ]
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "excuse-manager:build:production",
+            "firebaseProject": "excuses-manager",
+            "firebaseHostingSite": "excuses-manager"
+          }
         }
       }
     }

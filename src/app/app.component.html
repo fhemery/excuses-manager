@@ -1,4 +1,4 @@
-<div id="header"> {{'header.label' | translate}} </div>
+<app-header [user]="user$ | async" (logout)="onLogout()"></app-header>
 <router-outlet></router-outlet>
 <div> Here my footer
   <div routerLink="/login">Login</div>

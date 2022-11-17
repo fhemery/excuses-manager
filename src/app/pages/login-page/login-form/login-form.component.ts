@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { UserService } from '../../../services/user.service';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-login-form',
@@ -15,9 +17,16 @@ export class LoginFormComponent {
     return this.loginForm.get('login')! as FormControl;
   }
 
-  constructor(private readonly formBuilder: FormBuilder) {}
+  constructor(
+    private readonly formBuilder: FormBuilder,
+    private readonly userService: UserService
+  ) {}
 
   onSubmit() {
-    console.log(this.loginForm.value);
+    let loginFormValues = this.loginForm.value;
+    this.userService
+      .login(loginFormValues.login || '', loginFormValues.password || '')
+      .pipe(take(1))
+      .subscribe((res) => console.log('login successful?', res));
   }
 }
