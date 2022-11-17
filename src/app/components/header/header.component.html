@@ -1,10 +1,12 @@
-<div class="header">
-  <div class="header-title"> {{'app.title' | translate }}</div>
-  <div class="login-button" *ngIf="!user">
-    <button mat-raised-button routerLink="/login"> {{'header.loginButton' | translate}}</button>
+<mat-toolbar color="primary">
+  <div class="header">
+    <div class="header-title" routerLink="/"> {{'app.title' | translate }}</div>
+    <div class="login-button" *ngIf="!user">
+      <button mat-raised-button routerLink="/login"> {{'header.loginButton' | translate}}</button>
+    </div>
+    <div class="user-details" *ngIf="user">
+      {{'header.welcome' | translate:{name: user.email} }}
+      <button mat-raised-button (click)="clickLogout()"> {{'header.logoutButton' | translate}}</button>
+    </div>
   </div>
-  <div class="user-details" *ngIf="user">
-    {{'header.welcome' | translate:{name: user.email} }}
-    <button mat-raised-button (click)="clickLogout()"> {{'header.logoutButton' | translate}}</button>
-  </div>
-</div>
+</mat-toolbar>

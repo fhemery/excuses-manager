@@ -9,17 +9,19 @@ export const en = {
     welcome: 'Welcome, {{name}}',
   },
   footer: {
-    label: 'Here is my footer',
+    copyright:
+      'Copyright HemIT 2022 - Any reproduction is highly discouraged (for your own sake, not for code theft issues :P)',
   },
   homePage: {
     title: '{{nb}} Random excuses',
   },
   login: {
     title: 'Login',
+    error: 'Login failed - bad email or password',
     loginField: {
-      label: 'Login',
+      label: 'Email',
       errors: {
-        empty: 'Login field cannot be empty',
+        empty: 'Email field cannot be empty',
       },
     },
     passwordField: {

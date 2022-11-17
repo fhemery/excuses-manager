@@ -16,6 +16,7 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { HeaderModule } from './components/header/header.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { FooterModule } from './components/footer/footer.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,6 +34,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     provideFirestore(() => getFirestore()),
+    FooterModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

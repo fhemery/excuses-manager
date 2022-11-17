@@ -1,4 +1,4 @@
-<h2> {{'login.title' | translate}} </h2>
+<h2 class="login-title"> {{'login.title' | translate}} </h2>
 
 <div class="login-form">
   <mat-card>
@@ -17,7 +17,7 @@
             <input matInput type="password" formControlName="password">
           </mat-form-field>
         </div>
-        <div>
+        <div class="login-button">
           <button mat-raised-button color="primary" type="submit"
           [disabled]="loginForm.invalid">{{'login.submitButton.label' | translate}}</button>
         </div>

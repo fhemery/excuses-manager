@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { UserService } from '../../../services/user.service';
-import { take } from 'rxjs';
+import { LoginData } from '../../../model/login-data';
 
 @Component({
   selector: 'app-login-form',
@@ -17,16 +16,14 @@ export class LoginFormComponent {
     return this.loginForm.get('login')! as FormControl;
   }
 
-  constructor(
-    private readonly formBuilder: FormBuilder,
-    private readonly userService: UserService
-  ) {}
+  @Output() submitLogin = new EventEmitter<LoginData>();
+
+  constructor(private readonly formBuilder: FormBuilder) {}
 
   onSubmit() {
     let loginFormValues = this.loginForm.value;
-    this.userService
-      .login(loginFormValues.login || '', loginFormValues.password || '')
-      .pipe(take(1))
-      .subscribe((res) => console.log('login successful?', res));
+    this.submitLogin.emit(
+      new LoginData(loginFormValues.login || '', loginFormValues.password || '')
+    );
   }
 }
