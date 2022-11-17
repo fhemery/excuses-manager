@@ -8,6 +8,9 @@ export const en = {
     logoutButton: 'Logout',
     welcome: 'Welcome, {{name}}',
   },
+  favorites: {
+    title: 'My favorites',
+  },
   footer: {
     copyright:
       'Copyright HemIT 2022 - Any reproduction is highly discouraged (for your own sake, not for code theft issues :P)',
