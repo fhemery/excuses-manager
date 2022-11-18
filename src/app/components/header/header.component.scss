@@ -1,6 +1,7 @@
 .header {
   display:flex;
   width: 100%;
+  align-items: center;
 
   div {
     padding-left:1rem;
@@ -18,5 +19,10 @@
 
   .placeholder {
     flex-grow: 2;
+  }
+
+  .account-button {
+    font-size: 2rem;
+    padding:0.5rem;
   }
 }

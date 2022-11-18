@@ -7,8 +7,12 @@
       <button mat-raised-button routerLink="/login"> {{'header.loginButton' | translate}}</button>
     </div>
     <div class="user-details" *ngIf="user">
-      {{'header.welcome' | translate:{name: user.email} }}
-      <button mat-raised-button (click)="clickLogout()"> {{'header.logoutButton' | translate}}</button>
+      <mat-icon class="account-button" [matMenuTriggerFor]="profile">account_circle</mat-icon>
+      <mat-menu #profile="matMenu">
+        <div mat-menu-item>{{'header.welcome' | translate:{name: user.email} }}</div>
+        <button mat-menu-item routerLink="/profile"> {{'header.myProfile' | translate}}</button>
+        <button mat-menu-item (click)="clickLogout()">{{'header.logoutButton' | translate}}</button>
+      </mat-menu>
     </div>
   </div>
 </mat-toolbar>

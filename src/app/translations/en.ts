@@ -7,6 +7,7 @@ export const en = {
     loginButton: 'Login',
     logoutButton: 'Logout',
     welcome: 'Welcome, {{name}}',
+    myProfile: 'My profile',
   },
   favorites: {
     title: 'My favorites',
