@@ -35,4 +35,13 @@ export const en = {
       label: 'Log in',
     },
   },
+  profile: {
+    title: 'My profile',
+    name: {
+      label: 'Name:',
+    },
+    email: {
+      label: 'Email:',
+    },
+  },
 };

@@ -5,6 +5,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { UnloggedUsersOnlyGuard } from './services/unlogged-users-only.guard';
 import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
 import { LoggedUsersOnlyGuard } from './services/logged-users-only.guard';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,11 @@ const routes: Routes = [
   {
     path: 'favorites',
     component: FavoritesPageComponent,
+    canActivate: [LoggedUsersOnlyGuard],
+  },
+  {
+    path: 'profile',
+    component: ProfilePageComponent,
     canActivate: [LoggedUsersOnlyGuard],
   },
   { path: '', component: HomePageComponent },

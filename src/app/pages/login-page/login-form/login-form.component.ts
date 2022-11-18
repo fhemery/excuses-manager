@@ -9,7 +9,7 @@ import { LoginData } from '../../../model/login-data';
 })
 export class LoginFormComponent {
   loginForm = this.formBuilder.group({
-    login: new FormControl<string>('', Validators.required),
+    login: new FormControl<string>('', [Validators.required, Validators.email]),
     password: new FormControl<string>('', Validators.required),
   });
   get login(): FormControl {

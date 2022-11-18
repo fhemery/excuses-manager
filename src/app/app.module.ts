@@ -18,6 +18,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { FooterModule } from './components/footer/footer.module';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { FavoritesPageModule } from './pages/favorites-page/favorites-page.module';
+import { ProfilePageModule } from './pages/profile-page/profile-page.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,6 +31,7 @@ import { FavoritesPageModule } from './pages/favorites-page/favorites-page.modul
     HttpClientModule,
     HomePageModule,
     FavoritesPageModule,
+    ProfilePageModule,
     HeaderModule,
     LoginPageModule,
     TranslateModule.forRoot(),
