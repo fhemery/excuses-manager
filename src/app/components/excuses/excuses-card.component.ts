@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Excuse } from '../../model/excuse';
 
 @Component({
   selector: 'app-excuses-card',
@@ -6,11 +7,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./excuses-card.component.scss'],
 })
 export class ExcusesCardComponent {
-  @Input() excuse: string = '';
+  @Input() excuse: Excuse | null = null;
 
-  @Output() selected = new EventEmitter<string>();
+  @Output() favorite = new EventEmitter<Excuse | null>();
 
-  select() {
-    this.selected.emit(this.excuse);
+  addFavorite() {
+    console.log('ExcusesCardComponent', 'addFavorite');
+    this.favorite.emit(this.excuse);
   }
 }

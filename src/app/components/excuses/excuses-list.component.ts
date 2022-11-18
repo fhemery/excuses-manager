@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ExcusesService } from '../../services/excuses.service';
+import { Excuse } from '../../model/excuse';
+import { FavoriteService } from '../../services/favorite.service';
 
 @Component({
   selector: 'app-excuses-list',
@@ -8,14 +10,23 @@ import { ExcusesService } from '../../services/excuses.service';
   styleUrls: ['./excuses-list.component.scss'],
 })
 export class ExcusesListComponent {
-  excuses$: Observable<string[]>;
+  excuses$: Observable<Excuse[]>;
   selectedExcuse: string = '';
 
-  constructor(private excusesService: ExcusesService) {
+  constructor(
+    private excusesService: ExcusesService,
+    private readonly favoriteService: FavoriteService
+  ) {
     this.excuses$ = this.excusesService.getRandom(6);
   }
 
-  setSelected(excuse: any) {
-    this.selectedExcuse = excuse;
+  setFavorite(excuse: Excuse | null) {
+    console.log('ExcusesCardComponent', 'setFavorite');
+    if (!excuse) {
+      return;
+    }
+    this.favoriteService.addFavorite(excuse!).subscribe(() => {
+      console.log('excuse added !');
+    });
   }
 }

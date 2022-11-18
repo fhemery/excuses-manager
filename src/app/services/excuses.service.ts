@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ExcusesHttpService } from './excuses-http.service';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
+import { Excuse } from '../model/excuse';
 
 @Injectable({
   providedIn: 'root',
@@ -8,9 +9,7 @@ import { map, Observable } from 'rxjs';
 export class ExcusesService {
   constructor(private readonly httpService: ExcusesHttpService) {}
 
-  getRandom(nb: number): Observable<string[]> {
-    return this.httpService
-      .getRandomExcuses(nb)
-      .pipe(map((excuses) => excuses.map((e) => e.excuse)));
+  getRandom(nb: number): Observable<Excuse[]> {
+    return this.httpService.getRandomExcuses(nb);
   }
 }

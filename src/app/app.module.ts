@@ -12,11 +12,12 @@ import { LoginPageModule } from './pages/login-page/login-page.module';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { en } from './translations/en';
 import { environment } from '../environments/environment';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { HeaderModule } from './components/header/header.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { FooterModule } from './components/footer/footer.module';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { FavoritesPageModule } from './pages/favorites-page/favorites-page.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,12 +29,13 @@ import { FooterModule } from './components/footer/footer.module';
     ExcusesModule,
     HttpClientModule,
     HomePageModule,
+    FavoritesPageModule,
     HeaderModule,
     LoginPageModule,
     TranslateModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    provideFirestore(() => getFirestore()),
+    AngularFirestoreModule,
     FooterModule,
   ],
   providers: [],
