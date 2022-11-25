@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [LoginPageComponent, LoginFormComponent],
@@ -21,6 +22,12 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatButtonModule,
     ReactiveFormsModule,
     MatSnackBarModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: LoginPageComponent,
+      },
+    ]),
   ],
 })
 export class LoginPageModule {}

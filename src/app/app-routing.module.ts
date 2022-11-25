@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { UnloggedUsersOnlyGuard } from './services/unlogged-users-only.guard';
 import { FavoritesPageComponent } from './pages/favorites-page/favorites-page.component';
@@ -10,7 +9,10 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginPageComponent,
+    loadChildren: () =>
+      import('./pages/login-page/login-page.module').then(
+        (m) => m.LoginPageModule
+      ),
     canActivate: [UnloggedUsersOnlyGuard],
   },
   {

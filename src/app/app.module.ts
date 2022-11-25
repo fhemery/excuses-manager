@@ -8,7 +8,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { ExcusesModule } from './components/excuses/excuses.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HomePageModule } from './pages/home-page/home-page.module';
-import { LoginPageModule } from './pages/login-page/login-page.module';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { en } from './translations/en';
 import { environment } from '../environments/environment';
@@ -33,7 +32,6 @@ import { ProfilePageModule } from './pages/profile-page/profile-page.module';
     FavoritesPageModule,
     ProfilePageModule,
     HeaderModule,
-    LoginPageModule,
     TranslateModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
