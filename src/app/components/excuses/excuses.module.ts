@@ -5,10 +5,17 @@ import { ExcusesCardComponent } from './excuses-card.component';
 import { MatCardModule } from '@angular/material/card';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [ExcusesListComponent, ExcusesCardComponent],
-  imports: [CommonModule, MatCardModule, TranslateModule, MatIconModule],
+  imports: [
+    CommonModule,
+    MatCardModule,
+    TranslateModule,
+    MatIconModule,
+    MatButtonModule,
+  ],
   exports: [ExcusesListComponent, ExcusesCardComponent],
 })
 export class ExcusesModule {}
