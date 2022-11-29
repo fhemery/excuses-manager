@@ -6,7 +6,7 @@
     "deploy": "ng deploy",
     "start": "ng serve",
     "build": "ng build",
-    "build:prod" : "ng run excuse-manager:build:production",
+    "build:prod": "ng run excuse-manager:build:production",
     "watch": "ng build --watch --configuration development",
     "test": "jest",
     "lint": "ng lint"
