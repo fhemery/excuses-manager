@@ -18,6 +18,7 @@ import { FooterModule } from './components/footer/footer.module';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { FavoritesPageModule } from './pages/favorites-page/favorites-page.module';
 import { ProfilePageModule } from './pages/profile-page/profile-page.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,6 +38,12 @@ import { ProfilePageModule } from './pages/profile-page/profile-page.module';
     AngularFireAuthModule,
     AngularFirestoreModule,
     FooterModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
