@@ -26,5 +26,19 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "random-excuses",
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxSize": 100,
+        "maxAge": "20s",
+        "timeout": "2s"
+      },
+      "urls": [
+        "/api/excuse/*"
+      ]
+    }
   ]
 }
