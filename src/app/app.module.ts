@@ -19,6 +19,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { FavoritesPageModule } from './pages/favorites-page/favorites-page.module';
 import { ProfilePageModule } from './pages/profile-page/profile-page.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,6 +38,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule.enablePersistence(),
+    AngularFireStorageModule,
     FooterModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
