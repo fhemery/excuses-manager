@@ -1,23 +1,30 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ExcusesListComponent } from './excuses-list.component';
+import { ExcusesService } from '../../services/excuses.service';
+import { FavoriteService } from '../../services/favorite.service';
+import { of } from 'rxjs';
 
 describe('ExcusesListComponent', () => {
   let component: ExcusesListComponent;
-  let fixture: ComponentFixture<ExcusesListComponent>;
+  let favoriteService: FavoriteService;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ ExcusesListComponent ]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(ExcusesListComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    favoriteService = {} as FavoriteService;
+    component = new ExcusesListComponent(
+      { getRandom: () => of([]) } as unknown as ExcusesService,
+      favoriteService
+    );
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should call the favorite service on setFavorite', function () {
+    favoriteService.addFavorite = jest.fn().mockReturnValue(of(null));
+
+    let excuse = { id: 2, excuse: '', category: '' };
+    component.setFavorite(excuse);
+
+    expect(favoriteService.addFavorite).toHaveBeenCalledWith(excuse);
   });
 });
