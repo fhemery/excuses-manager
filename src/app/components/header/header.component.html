@@ -2,6 +2,10 @@
   <div class="header">
     <div class="header-title" routerLink="/"> {{'app.title' | translate }}</div>
     <div class="header-favorites" routerLink="/favorites"> {{'favorites.title' | translate }}</div>
+    <div class="header-notifs">
+      <button mat-raised-button (click)="enableNotification()"> Notifs+!</button>
+      <div *ngIf="key">FCM key : {{ key }}</div>
+    </div>
     <div class="placeholder"> &nbsp;</div>
     <div class="login-button" *ngIf="!user">
       <button mat-raised-button routerLink="/login"> {{'header.loginButton' | translate}}</button>
