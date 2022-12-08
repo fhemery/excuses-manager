@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import firebase from 'firebase/compat';
 import { AngularFireMessaging } from '@angular/fire/compat/messaging';
+import { catchError, NEVER } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -19,15 +20,20 @@ export class HeaderComponent {
   constructor(private readonly afMessaging: AngularFireMessaging) {}
   enableNotification() {
     this.afMessaging.requestToken // getting tokens
-      .subscribe(
-        (token) => {
-          // USER-REQUESTED-TOKEN
+      .pipe(
+        catchError((error) => {
+          console.error(error);
+          return NEVER;
+        })
+      )
+      .subscribe((token) => {
+        // USER-REQUESTED-TOKEN
+        if (token) {
           console.log('Permission granted! Save to the server!', token);
           this.key = token || '';
-        },
-        (error) => {
-          console.error(error);
+        } else {
+          console.error('User rejected the notification');
         }
-      );
+      });
   }
 }
